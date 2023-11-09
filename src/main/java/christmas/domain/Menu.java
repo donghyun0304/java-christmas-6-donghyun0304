@@ -33,9 +33,9 @@ public enum Menu {
                 .anyMatch(m -> m == menu);
     }
 
-    public boolean hasMenuListInDessert(MenuList menu){
+    public static boolean hasMenuListInDessert(MenuList menu){
         return Arrays.stream(Menu.values())
-                .anyMatch(m -> menus.contains(menu));
+                .anyMatch(m -> m == DESSERT && m.hasMenuName(menu));
     }
 
 
