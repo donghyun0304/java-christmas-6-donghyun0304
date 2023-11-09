@@ -1,19 +1,32 @@
 package christmas.domain;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Order {
 
-    private List<MenuList> menus;
+    private Map<MenuList, Integer> menus;
+    private List<Discount> discounts;
 
-    public Order(List<MenuList> menus) {
+    public Order(Map<MenuList, Integer> menus, List<Discount> discounts) {
         this.menus = menus;
+        this.discounts = discounts;
     }
 
     public int calcTotalAmountBeforeDiscount(){
-        return menus.stream()
-                .mapToInt(menu -> menu.getPrice())
-                .sum();
+        int totalAmountBeforeDiscount = 0;
+        Set<Map.Entry<MenuList, Integer>> entries = menus.entrySet();
+
+        for(Map.Entry<MenuList, Integer> entry : entries){
+            int price = entry.getKey().getPrice();
+            Integer quantity = entry.getValue();
+
+            totalAmountBeforeDiscount += price * quantity;
+        }
+        return totalAmountBeforeDiscount;
     }
+
+
 
 }
