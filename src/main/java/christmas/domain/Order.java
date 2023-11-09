@@ -45,7 +45,10 @@ public class Order {
     }
 
     public int calcTotalBenefitAmount(){
-        return calcTotalDiscountAmount() + present.getPrice();
+        if(present != null){
+            return calcTotalDiscountAmount() + present.getPrice();
+        }
+        return calcTotalDiscountAmount();
     }
 
     public Map<MenuList, Integer> getMenus() {
