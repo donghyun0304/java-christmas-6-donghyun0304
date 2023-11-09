@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -47,5 +48,7 @@ public class Order {
         return calcTotalDiscountAmount() + present.getPrice();
     }
 
-
+    public Map<MenuList, Integer> getMenus() {
+        return Collections.unmodifiableMap(menus);
+    }
 }
