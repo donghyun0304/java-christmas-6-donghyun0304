@@ -1,7 +1,9 @@
 package christmas.view;
 
+import christmas.domain.Discount;
 import christmas.domain.MenuList;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -34,7 +36,20 @@ public class OutputView {
         if(menu != null){
             System.out.println(menu.getTitle() + " 1개");
         }
+        System.out.println();
     }
+
+    public void printBenefitResult(Map<String, Integer> discounts, MenuList present){
+        System.out.println("<혜택 내역>");
+        Set<Map.Entry<String, Integer>> entries = discounts.entrySet();
+        for(Map.Entry<String, Integer> entry : entries){
+            System.out.printf("%s: -%,d원\n", entry.getKey(), entry.getValue());
+        }
+        System.out.printf("%s: -%,d원\n", present.getTitle(), present.getPrice());
+        System.out.println();
+    }
+
+    
 
 
 }
