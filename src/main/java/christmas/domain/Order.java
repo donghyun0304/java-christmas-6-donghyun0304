@@ -51,4 +51,8 @@ public class Order {
     public Map<MenuList, Integer> getMenus() {
         return Collections.unmodifiableMap(menus);
     }
+
+    public String getPresent() {
+        return present.getTitle();
+    }
 }
