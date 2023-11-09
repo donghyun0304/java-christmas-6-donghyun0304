@@ -43,6 +43,13 @@ public enum Event_12_Calendar {
                 .anyMatch(d -> d==CHRISTMAS_EVENT_DAYS && d.hasDay(day));
     }
 
+    public static boolean hasWeekdayInWeekdays(String day){
+        return Arrays.stream(Event_12_Calendar.values())
+                .anyMatch(d -> d==WEEKDAYS && d.hasDay(day));
+    }
+
+
+
 
 
 
