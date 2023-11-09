@@ -13,7 +13,7 @@ public class EventService {
 
         if(events.contains(Event_12_Calendar.CHRISTMAS_EVENT_DAYS)){
             Discount christmasDiscount = Discount.createChristmasDiscount(day);
-            System.out.println(christmasDiscount.toString());
+//            System.out.println(christmasDiscount.toString());
             discounts.add(christmasDiscount);
         }
 
@@ -23,12 +23,34 @@ public class EventService {
                 for(int i=0; i<menus.get(m); i++){
                     Discount weekdaysDiscount = Discount.createWeekdaysDiscount(day, m);
                     if(weekdaysDiscount != null){
-                        System.out.println(weekdaysDiscount.toString());
+//                        System.out.println(weekdaysDiscount.toString());
                         discounts.add(weekdaysDiscount);
                     }
                 }
             }
         }
-        return null;
+
+        if(events.contains(Event_12_Calendar.WEEKENDS)){
+            Set<MenuList> menuLists = menus.keySet();
+            for(MenuList m : menuLists) {
+                for(int i=0; i<menus.get(m); i++) {
+                    Discount weekendsDiscount = Discount.createWeekendsDiscount(day, m);
+                    if(weekendsDiscount != null){
+//                        System.out.println(weekendsDiscount.toString());
+                        discounts.add(weekendsDiscount);
+                    }
+                }
+            }
+        }
+
+        if(events.contains(Event_12_Calendar.STAR_DAYS)){
+            Discount starDiscount = Discount.createStarDiscount(day);
+//            System.out.println(starDiscount.toString());
+            discounts.add(starDiscount);
+        }
+
+//        System.out.println(discounts.toString());
+
+        return discounts;
     }
 }
