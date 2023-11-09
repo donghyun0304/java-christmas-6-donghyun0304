@@ -17,6 +17,13 @@ public class OutputView {
         for (Map.Entry<MenuList, Integer> entry : entries) {
             System.out.println(entry.getKey().getTitle() + " " + entry.getValue() + "개");
         }
+        System.out.println();
+    }
+
+    public void printTotalAmountBeforeDiscount(int amount){
+        System.out.println("<할인 전 총주문 금액>");
+        System.out.printf("%,d\n", amount);
+
     }
 
 
