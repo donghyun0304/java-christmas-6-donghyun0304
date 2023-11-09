@@ -23,7 +23,17 @@ public class OutputView {
     public void printTotalAmountBeforeDiscount(int amount){
         System.out.println("<할인 전 총주문 금액>");
         System.out.printf("%,d\n", amount);
+        System.out.println();
+    }
 
+    public void printPresent(MenuList menu){
+        System.out.println("<증정 메뉴>");
+        if(menu == null){
+            System.out.println("없음");
+        }
+        if(menu != null){
+            System.out.println(menu.getTitle() + " 1개");
+        }
     }
 
 
