@@ -6,12 +6,17 @@ import java.util.Set;
 
 public class Order {
 
+    private static final int MIN_PRICE_FOR_PRESENT = 120000;
     private Map<MenuList, Integer> menus;
     private List<Discount> discounts;
+    private MenuList present;
 
     public Order(Map<MenuList, Integer> menus, List<Discount> discounts) {
         this.menus = menus;
         this.discounts = discounts;
+        if(calcTotalAmountBeforeDiscount() >= MIN_PRICE_FOR_PRESENT){
+            this.present = MenuList.CHAMPAGNE;
+        }
     }
 
     public int calcTotalAmountBeforeDiscount(){
@@ -36,6 +41,10 @@ public class Order {
         return discounts.stream()
                 .mapToInt(discount -> discount.getDiscountPrice())
                 .sum();
+    }
+
+    public int calcTotalBenefitAmount(){
+        return calcTotalDiscountAmount() + present.getPrice();
     }
 
 
