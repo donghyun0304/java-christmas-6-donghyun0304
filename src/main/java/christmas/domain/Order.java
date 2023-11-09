@@ -52,7 +52,10 @@ public class Order {
         return Collections.unmodifiableMap(menus);
     }
 
-    public String getPresent() {
+    public String getPresentName() {
+        if(present == null){
+            return "없음";
+        }
         return present.getTitle();
     }
 }
