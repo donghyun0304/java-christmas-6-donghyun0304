@@ -53,6 +53,13 @@ public enum Event_12_Calendar {
                 .anyMatch(d -> d==WEEKENDS && d.hasDay(day));
     }
 
+    public static boolean hasStarDayInStarDays(String day){
+        return Arrays.stream(Event_12_Calendar.values())
+                .anyMatch(d -> d==STAR_DAYS && d.hasDay(day));
+    }
+
+
+
 
 
 
