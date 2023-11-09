@@ -24,7 +24,7 @@ public class OutputView {
 
     public void printTotalAmountBeforeDiscount(int amount){
         System.out.println("<할인 전 총주문 금액>");
-        System.out.printf("%,d\n", amount);
+        System.out.printf("%,d원\n", amount);
         System.out.println();
     }
 
@@ -48,18 +48,27 @@ public class OutputView {
         if(present != null){
             System.out.printf("%s: -%,d원\n", present.getTitle(), present.getPrice());
         }
+        if(discounts.isEmpty() && present == null){
+            System.out.println("없음");
+        }
         System.out.println();
     }
 
     public void printTotalBenefitAmount(int amount){
         System.out.println("<총혜택 금액>");
+        if(amount == 0){
+            System.out.printf("%,d원\n", amount);
+            System.out.println();
+            return;
+        }
         System.out.printf("-%,d원\n", amount);
         System.out.println();
-    }
+    }   
 
     public void printTotalAmountAfterDiscount(int amount){
         System.out.println("<할인 후 예상 결제 금액>");
         System.out.printf("%,d원\n", amount);
+        System.out.println();
     }
 
     public void printBadge(int amount){
