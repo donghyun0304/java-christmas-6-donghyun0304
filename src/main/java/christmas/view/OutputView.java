@@ -45,18 +45,39 @@ public class OutputView {
         for(Map.Entry<String, Integer> entry : entries){
             System.out.printf("%s: -%,d원\n", entry.getKey(), entry.getValue());
         }
-        System.out.printf("%s: -%,d원\n", present.getTitle(), present.getPrice());
+        if(present != null){
+            System.out.printf("%s: -%,d원\n", present.getTitle(), present.getPrice());
+        }
         System.out.println();
     }
 
     public void printTotalBenefitAmount(int amount){
         System.out.println("<총혜택 금액>");
         System.out.printf("-%,d원\n", amount);
+        System.out.println();
     }
 
     public void printTotalAmountAfterDiscount(int amount){
         System.out.println("<할인 후 예상 결제 금액>");
         System.out.printf("%,d원\n", amount);
+    }
+
+    public void printBadge(int amount){
+        System.out.println("<12월 이벤트 배지>");
+        if(amount >= 5000 && amount < 10000){
+            System.out.println("별");
+            return;
+        }
+        if(amount >= 10000 && amount < 20000){
+            System.out.println("트리");
+            return;
+        }
+        if(amount >= 20000){
+            System.out.println("산타");
+            return;
+        }
+        System.out.println("없음");
+        System.out.println();
     }
 
 
