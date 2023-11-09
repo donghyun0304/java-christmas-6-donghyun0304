@@ -27,7 +27,10 @@ public class Order {
         return totalAmountBeforeDiscount;
     }
 
-    
+    public int calcTotalAmountAfterDiscount(){
+        return calcTotalAmountBeforeDiscount() - calcTotalDiscountAmount();
+    }
+
 
     public int calcTotalDiscountAmount(){
         return discounts.stream()
