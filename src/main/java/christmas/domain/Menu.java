@@ -38,6 +38,13 @@ public enum Menu {
                 .anyMatch(m -> m == DESSERT && m.hasMenuName(menu));
     }
 
+    public static boolean hasMenuListInMain(MenuList menu){
+        return Arrays.stream(Menu.values())
+                .anyMatch(m -> m == MAIN && m.hasMenuName(menu));
+    }
+
+
+
 
 
 
