@@ -6,6 +6,8 @@ public class Discount {
 
     public static final int WEEKDAYS_DISCOUNT_PRICE = 2023;
     public static final int WEEKENDS_DISCOUNT_PRICE = 2023;
+    public static final int START_DAYS_DISCOUNT_PRICE = 1000;
+
 
     private String discountTitle;
     private int discountPrice;
@@ -38,6 +40,13 @@ public class Discount {
             }
         }
         return null;
+    }
+
+    public static Discount createStarDiscount(String day){
+        if(Event_12_Calendar.hasStarDayInStarDays(day)){
+            return new Discount(Event_12_Calendar.STAR_DAYS.getTitle(), START_DAYS_DISCOUNT_PRICE);
+        }
+        throw new IllegalArgumentException("스타데이가 아닙니다.");
     }
 
 
