@@ -1,10 +1,23 @@
 package christmas.view;
 
+import christmas.domain.MenuList;
+
+import java.util.Map;
+import java.util.Set;
+
 public class OutputView {
 
     public void printStart(){
         System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");
     }
 
-    
+    public void printMenus(Map<MenuList, Integer> menus){
+        System.out.println("<주문 메뉴>");
+        Set<Map.Entry<MenuList, Integer>> entries = menus.entrySet();
+        for (Map.Entry<MenuList, Integer> entry : entries) {
+            System.out.println(entry.getKey().getTitle() + " " + entry.getValue() + "개");
+        }
+    }
+
+
 }
