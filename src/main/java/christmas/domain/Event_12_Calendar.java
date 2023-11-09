@@ -20,4 +20,16 @@ public enum Event_12_Calendar {
         this.days = days;
     }
 
+    public static Event_12_Calendar findEvent(String day){
+        return Arrays.stream(Event_12_Calendar.values())
+                .filter(d -> d.hasDay(day))
+                .findAny()
+                .orElse(null);
+    }
+
+    public boolean hasDay(String day){
+        return days.stream()
+                .anyMatch(d -> d.equals(day));
+    }
+
 }
