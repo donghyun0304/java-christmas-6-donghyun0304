@@ -7,7 +7,15 @@
 크리스마스 디데이 할인 을 제외한 다른이벤트는 12.1 ~ 31 적용
 
 Menu(Enum)
-카테고리랑, 메뉴로 분리
+카테고리랑 메뉴로 분리
+
+AppetizerList
+
+MainList
+
+DessertList
+
+DrinkList
 
 
 Order
