@@ -21,7 +21,7 @@ public class Discount {
         throw new IllegalArgumentException("크리스마스 디데이 할인이 아닙니다.");
     }
 
-    public static Discount createWeekdaysDiscount(Event_12_Calendar calendar, String day, MenuList menu){
+    public static Discount createWeekdaysDiscount(String day, MenuList menu){
         if(Event_12_Calendar.hasWeekdayInWeekdays(day)){
             if(Menu.hasMenuListInDessert(menu)){
                 return new Discount(Event_12_Calendar.WEEKENDS.getTitle(), WEEKDAYS_DISCOUNT_PRICE);
