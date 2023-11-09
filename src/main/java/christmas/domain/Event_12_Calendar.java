@@ -48,6 +48,11 @@ public enum Event_12_Calendar {
                 .anyMatch(d -> d==WEEKDAYS && d.hasDay(day));
     }
 
+    public static boolean hasWeekendInWeekends(String day){
+        return Arrays.stream(Event_12_Calendar.values())
+                .anyMatch(d -> d==WEEKENDS && d.hasDay(day));
+    }
+
 
 
 
