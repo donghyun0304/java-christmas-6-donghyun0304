@@ -5,6 +5,7 @@ import christmas.constant.Constant;
 public class Discount {
 
     public static final int WEEKDAYS_DISCOUNT_PRICE = 2023;
+    public static final int WEEKENDS_DISCOUNT_PRICE = 2023;
 
     private String discountTitle;
     private int discountPrice;
@@ -24,10 +25,19 @@ public class Discount {
     public static Discount createWeekdaysDiscount(String day, MenuList menu){
         if(Event_12_Calendar.hasWeekdayInWeekdays(day)){
             if(Menu.hasMenuListInDessert(menu)){
-                return new Discount(Event_12_Calendar.WEEKENDS.getTitle(), WEEKDAYS_DISCOUNT_PRICE);
+                return new Discount(Event_12_Calendar.WEEKDAYS.getTitle(), WEEKDAYS_DISCOUNT_PRICE);
             }
         }
-        throw new IllegalArgumentException("평일할인이 아닙니다.");
+        return null;
+    }
+
+    public static Discount createWeekendsDiscount(String day, MenuList menu){
+        if(Event_12_Calendar.hasWeekendInWeekends(day)){
+            if(Menu.hasMenuListInMain(menu)){
+                return new Discount(Event_12_Calendar.WEEKENDS.getTitle(), WEEKENDS_DISCOUNT_PRICE);
+            }
+        }
+        return null;
     }
 
 
