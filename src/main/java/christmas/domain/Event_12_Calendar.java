@@ -15,6 +15,10 @@ public enum Event_12_Calendar {
     private String title;
     private List<String> days;
 
+    public String getTitle() {
+        return title;
+    }
+
     Event_12_Calendar(String title, List<String> days) {
         this.title = title;
         this.days = days;
