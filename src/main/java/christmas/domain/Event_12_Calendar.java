@@ -38,7 +38,7 @@ public enum Event_12_Calendar {
                 .anyMatch(d -> d.equals(day));
     }
 
-    public boolean hasDayInChristMasEventDays(String day){
+    public static boolean hasDayInChristMasEventDays(String day){
         return Arrays.stream(Event_12_Calendar.values())
                 .anyMatch(d -> d==CHRISTMAS_EVENT_DAYS && d.hasDay(day));
     }
