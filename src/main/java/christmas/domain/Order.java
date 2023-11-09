@@ -27,6 +27,13 @@ public class Order {
         return totalAmountBeforeDiscount;
     }
 
+    
+
+    public int calcTotalDiscountAmount(){
+        return discounts.stream()
+                .mapToInt(discount -> discount.getDiscountPrice())
+                .sum();
+    }
 
 
 }
