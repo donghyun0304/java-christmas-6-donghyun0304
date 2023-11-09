@@ -49,6 +49,9 @@ public class Discount {
         throw new IllegalArgumentException("스타데이가 아닙니다.");
     }
 
+    public int getDiscountPrice() {
+        return discountPrice;
+    }
 
     @Override
     public String toString() {
