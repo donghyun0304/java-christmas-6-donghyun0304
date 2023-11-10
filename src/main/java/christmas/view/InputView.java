@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.domain.MenuList;
 import christmas.validation.Validator;
 
 import static camp.nextstep.edu.missionutils.Console.*;
@@ -21,7 +22,19 @@ public class InputView {
 
     public String inputMenus(){
         System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
-        return readLine().trim();
+        String order = readLine().trim();
+        try {
+            Validator.validateOrderForm(order);
+            Validator.validateDuplicate(order);
+            MenuList.validateValidMenus(order);
+        } catch (IllegalArgumentException e){
+            System.out.println("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            return inputMenus();
+        }
+        return order;
     }
+
+
+
 
 }
