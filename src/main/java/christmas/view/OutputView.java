@@ -2,6 +2,7 @@ package christmas.view;
 
 import christmas.domain.Discount;
 import christmas.domain.MenuList;
+import christmas.dto.BenefitResultDto;
 
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,10 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printBenefitResult(Map<String, Integer> discounts, MenuList present){
+    public void printBenefitResult(BenefitResultDto benefitResultDto){
+        Map<String, Integer> discounts = benefitResultDto.getNonDuplicateDiscounts();
+        MenuList present = benefitResultDto.getPresent();
+
         System.out.println("<혜택 내역>");
         Set<Map.Entry<String, Integer>> entries = discounts.entrySet();
         for(Map.Entry<String, Integer> entry : entries){
@@ -63,7 +67,7 @@ public class OutputView {
         }
         System.out.printf("-%,d원\n", amount);
         System.out.println();
-    }   
+    }
 
     public void printTotalAmountAfterDiscount(int amount){
         System.out.println("<할인 후 예상 결제 금액>");

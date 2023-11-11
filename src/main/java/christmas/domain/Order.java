@@ -1,9 +1,6 @@
 package christmas.domain;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Order {
 
@@ -58,4 +55,9 @@ public class Order {
     public MenuList getPresent() {
         return present;
     }
+
+    public List<Discount> getDiscounts() {
+        return Collections.unmodifiableList(discounts);
+    }
+
 }
