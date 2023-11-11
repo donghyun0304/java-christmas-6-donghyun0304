@@ -21,7 +21,7 @@ public class Discount {
         if(Event_12_Calendar.hasDayInChristMasEventDays(day)){
             return new Discount(Event_12_Calendar.CHRISTMAS_EVENT_DAYS.getTitle(), (Integer.parseInt(day) - 1) * 100 + 1000);
         }
-        throw new IllegalArgumentException("크리스마스 디데이 할인이 아닙니다.");
+        throw new IllegalArgumentException("크리스마스 디데이 할인 날짜가 아닙니다.");
     }
 
     public static Discount createWeekdaysDiscount(String day, MenuList menu){
@@ -30,7 +30,7 @@ public class Discount {
                 return new Discount(Event_12_Calendar.WEEKDAYS.getTitle(), WEEKDAYS_DISCOUNT_PRICE);
             }
         }
-        return null;
+        throw new IllegalArgumentException("평일할인 날짜가 아닙니다.");
     }
 
     public static Discount createWeekendsDiscount(String day, MenuList menu){
@@ -39,7 +39,7 @@ public class Discount {
                 return new Discount(Event_12_Calendar.WEEKENDS.getTitle(), WEEKENDS_DISCOUNT_PRICE);
             }
         }
-        return null;
+        throw new IllegalArgumentException("주말할인 날짜가 아닙니다.");
     }
 
     public static Discount createStarDiscount(String day){
@@ -51,6 +51,10 @@ public class Discount {
 
     public int getDiscountPrice() {
         return discountPrice;
+    }
+
+    public String getDiscountTitle() {
+        return discountTitle;
     }
 
     @Override
