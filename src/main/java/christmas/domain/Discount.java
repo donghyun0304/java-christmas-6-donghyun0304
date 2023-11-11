@@ -30,7 +30,7 @@ public class Discount {
                 return new Discount(Event_12_Calendar.WEEKDAYS.getTitle(), WEEKDAYS_DISCOUNT_PRICE);
             }
         }
-        throw new IllegalArgumentException("평일할인 날짜가 아닙니다.");
+        return null;
     }
 
     public static Discount createWeekendsDiscount(String day, MenuList menu){
@@ -39,7 +39,7 @@ public class Discount {
                 return new Discount(Event_12_Calendar.WEEKENDS.getTitle(), WEEKENDS_DISCOUNT_PRICE);
             }
         }
-        throw new IllegalArgumentException("주말할인 날짜가 아닙니다.");
+        return null;
     }
 
     public static Discount createStarDiscount(String day){
