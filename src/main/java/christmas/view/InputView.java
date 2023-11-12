@@ -32,6 +32,7 @@ public class InputView {
             MenuList.validateValidMenus(order);
             Menu.validateOnlyDrinks(order);
             Validator.validateLessThan20Menus(order);
+            Validator.validateZeroNumber(order);
         } catch (IllegalArgumentException e){
             System.out.println("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
             return inputMenus();

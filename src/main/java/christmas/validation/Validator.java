@@ -54,5 +54,14 @@ public class Validator {
         }
     }
 
+    public static void validateZeroNumber(String input){
+        boolean hasZeroNumber = Arrays.stream(input.split(","))
+                .mapToInt(menu -> Integer.parseInt(menu.substring(menu.indexOf("-") + 1)))
+                .anyMatch(number -> number == 0);
+        if(hasZeroNumber){
+            throw new IllegalArgumentException("음식의 개수는 최소 1개 이상 주문해야합니다.");
+    }
+    }
+
 
 }
