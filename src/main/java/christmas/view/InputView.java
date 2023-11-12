@@ -15,7 +15,7 @@ public class InputView {
         String day = readLine().trim();
         try{
             Validator.validateOnlyNumber(day);
-            Validator.validate1To45Number(Integer.parseInt(day));
+            Validator.validate1To31Number(Integer.parseInt(day));
         } catch (IllegalArgumentException e){
             System.out.println("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
             return inputDay();

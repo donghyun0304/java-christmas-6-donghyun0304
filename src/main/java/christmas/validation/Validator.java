@@ -16,7 +16,7 @@ public class Validator {
         }
     }
 
-    public static void validate1To45Number(int number) {
+    public static void validate1To31Number(int number) {
         if (!(number >= 1 && number <= 31)) {
             throw new IllegalArgumentException("1~31사이의 숫자가 아닙니다.");
         }
