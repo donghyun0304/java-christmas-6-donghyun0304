@@ -19,20 +19,18 @@ public enum Menu {
         this.title = title;
         this.menus = menus;
     }
-    
+
     public boolean hasMenuName(MenuList menu){
         return menus.stream()
                 .anyMatch(m -> m == menu);
     }
 
     public static boolean hasMenuListInDessert(MenuList menu){
-        return Arrays.stream(Menu.values())
-                .anyMatch(m -> m == DESSERT && m.hasMenuName(menu));
+        return DESSERT.hasMenuName(menu);
     }
 
     public static boolean hasMenuListInMain(MenuList menu){
-        return Arrays.stream(Menu.values())
-                .anyMatch(m -> m == MAIN && m.hasMenuName(menu));
+        return MAIN.hasMenuName(menu);
     }
 
 }
