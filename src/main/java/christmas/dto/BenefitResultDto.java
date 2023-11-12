@@ -20,7 +20,7 @@ public class BenefitResultDto {
 
     public static BenefitResultDto from(Order order){
         return new BenefitResultDto(getDiscountsMap(order.getDiscounts()), order.getPresent());
-    }
+}
 
     private static Map<String, Integer> getDiscountsMap(List<Discount> discounts){
         Map<String, Integer> nonDuplicateDiscounts = new HashMap<>();
