@@ -33,4 +33,14 @@ public enum Menu {
         return MAIN.hasMenuName(menu);
     }
 
+    public static void validateOnlyDrinks(String inputMenus){
+        boolean hasOnlyDrinks = Arrays.stream(inputMenus.split(","))
+                .map(menu -> menu.substring(0, menu.indexOf("-")))
+                .map(menu -> MenuList.findMenu(menu))
+                .allMatch(menu -> DRINK.menus.contains(menu));
+        if(hasOnlyDrinks){
+            throw new IllegalArgumentException("음료만 주문할 수 없습니다.");
+        }
+    }
+
 }

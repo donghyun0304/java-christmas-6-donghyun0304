@@ -1,7 +1,10 @@
 package christmas.view;
 
+import christmas.domain.Menu;
 import christmas.domain.MenuList;
 import christmas.validation.Validator;
+
+import java.awt.*;
 
 import static camp.nextstep.edu.missionutils.Console.*;
 
@@ -27,6 +30,7 @@ public class InputView {
             Validator.validateOrderForm(order);
             Validator.validateDuplicate(order);
             MenuList.validateValidMenus(order);
+            Menu.validateOnlyDrinks(order);
         } catch (IllegalArgumentException e){
             System.out.println("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
             return inputMenus();
