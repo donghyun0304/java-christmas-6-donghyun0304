@@ -12,16 +12,16 @@ public class EventService {
     public List<Discount> getDiscounts(List<Event_12_Calendar> events, String day, Map<MenuList, Integer> menus){
         List<Discount> discounts = new ArrayList<>();
         if(events.contains(Event_12_Calendar.CHRISTMAS_EVENT_DAYS)){
-            addDiscountIfNotNull(Discount.createChristmasDiscount(day), discounts);
+            addDiscountIfNotNull(Discount.christmasFrom(day), discounts);
         }
         if(events.contains(Event_12_Calendar.WEEKDAYS)){
-            addDiscountsForMenus(day, menus, discounts, Discount::createWeekdaysDiscount);
+            addDiscountsForMenus(day, menus, discounts, Discount::weekdaysOf);
         }
         if(events.contains(Event_12_Calendar.WEEKENDS)){
-            addDiscountsForMenus(day, menus, discounts, Discount::createWeekendsDiscount);
+            addDiscountsForMenus(day, menus, discounts, Discount::weekendsOf);
         }
         if(events.contains(Event_12_Calendar.STAR_DAYS)){
-            addDiscountIfNotNull(Discount.createStarDiscount(day), discounts);
+            addDiscountIfNotNull(Discount.starFrom(day), discounts);
         }
         return discounts;
     }
