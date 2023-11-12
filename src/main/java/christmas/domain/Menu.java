@@ -19,15 +19,7 @@ public enum Menu {
         this.title = title;
         this.menus = menus;
     }
-
-    public static MenuList findMenu(String menuName){
-        return Arrays.stream(Menu.values())
-                .filter(m -> m.hasMenuName(MenuList.valueOf(menuName)))
-                .findAny()
-                .map(m -> MenuList.valueOf(menuName))
-                .orElseThrow(() -> new IllegalArgumentException("메뉴를 찾을 수 없습니다."));
-    }
-
+    
     public boolean hasMenuName(MenuList menu){
         return menus.stream()
                 .anyMatch(m -> m == menu);
@@ -42,15 +34,5 @@ public enum Menu {
         return Arrays.stream(Menu.values())
                 .anyMatch(m -> m == MAIN && m.hasMenuName(menu));
     }
-
-
-
-
-
-
-
-
-
-
 
 }
