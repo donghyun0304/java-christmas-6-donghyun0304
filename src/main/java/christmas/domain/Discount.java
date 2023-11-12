@@ -21,7 +21,7 @@ public class Discount {
         if(Event_12_Calendar.hasDayInChristMasEventDays(day)){
             return new Discount(Event_12_Calendar.CHRISTMAS_EVENT_DAYS.getTitle(), (Integer.parseInt(day) - 1) * 100 + 1000);
         }
-        throw new IllegalArgumentException("크리스마스 디데이 할인 날짜가 아닙니다.");
+        return null;
     }
 
     public static Discount createWeekdaysDiscount(String day, MenuList menu){
@@ -46,7 +46,7 @@ public class Discount {
         if(Event_12_Calendar.hasStarDayInStarDays(day)){
             return new Discount(Event_12_Calendar.STAR_DAYS.getTitle(), START_DAYS_DISCOUNT_PRICE);
         }
-        throw new IllegalArgumentException("스타데이가 아닙니다.");
+        return null;
     }
 
     public int getDiscountPrice() {
