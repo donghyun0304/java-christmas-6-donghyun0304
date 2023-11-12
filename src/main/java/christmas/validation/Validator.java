@@ -45,5 +45,14 @@ public class Validator {
         }
     }
 
+    public static void validateLessThan20Menus(String input){
+        int sum = Arrays.stream(input.split(","))
+                .mapToInt(menu -> Integer.parseInt(menu.substring(menu.indexOf("-") + 1)))
+                .sum();
+        if(sum > 20){
+            throw new IllegalArgumentException("메뉴는 한 번에 최대 20개까지만 주문할 수 있습니다.");
+        }
+    }
+
 
 }
