@@ -29,13 +29,12 @@ public enum Event_12_Calendar {
 
     public static List<Event_12_Calendar> findEvent(String day){
         return Arrays.stream(Event_12_Calendar.values())
-                .filter(d -> d.hasDay(day))
+                .filter(event -> event.hasDay(day))
                 .collect(Collectors.toList());
     }
 
     public boolean hasDay(String day){
-        return days.stream()
-                .anyMatch(d -> d.equals(day));
+        return days.contains(day);
     }
 
     public static boolean hasDayInChristMasEventDays(String day){
@@ -57,12 +56,5 @@ public enum Event_12_Calendar {
         return Arrays.stream(Event_12_Calendar.values())
                 .anyMatch(d -> d==STAR_DAYS && d.hasDay(day));
     }
-
-
-
-
-
-
-
 
 }
