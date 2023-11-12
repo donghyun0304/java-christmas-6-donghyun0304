@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public enum MenuList {
 
-    MUSHROOM_SOUP("양송이수프", 6000),
-    TAPAS("타파스", 5500),
-    CAESAR_SALAD("시저샐러드", 8000),
+    MUSHROOM_SOUP("양송이수프", 6_000),
+    TAPAS("타파스", 5_500),
+    CAESAR_SALAD("시저샐러드", 8_000),
     T_BONE_STEAK("티본스테이크", 55_000),
     BARBECUE_RIBS("바비큐립", 54_000),
     SEAFOOD_PASTA("해산물파스타", 35_000),
