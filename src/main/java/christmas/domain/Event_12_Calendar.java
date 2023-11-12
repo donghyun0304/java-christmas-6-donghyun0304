@@ -38,23 +38,19 @@ public enum Event_12_Calendar {
     }
 
     public static boolean hasDayInChristMasEventDays(String day){
-        return Arrays.stream(Event_12_Calendar.values())
-                .anyMatch(d -> d==CHRISTMAS_EVENT_DAYS && d.hasDay(day));
+        return CHRISTMAS_EVENT_DAYS.hasDay(day);
     }
 
     public static boolean hasWeekdayInWeekdays(String day){
-        return Arrays.stream(Event_12_Calendar.values())
-                .anyMatch(d -> d==WEEKDAYS && d.hasDay(day));
+        return WEEKDAYS.hasDay(day);
     }
 
     public static boolean hasWeekendInWeekends(String day){
-        return Arrays.stream(Event_12_Calendar.values())
-                .anyMatch(d -> d==WEEKENDS && d.hasDay(day));
+        return WEEKENDS.hasDay(day);
     }
 
     public static boolean hasStarDayInStarDays(String day){
-        return Arrays.stream(Event_12_Calendar.values())
-                .anyMatch(d -> d==STAR_DAYS && d.hasDay(day));
+        return STAR_DAYS.hasDay(day);
     }
 
 }
