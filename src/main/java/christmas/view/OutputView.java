@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.constant.Constant;
 import christmas.domain.Discount;
 import christmas.domain.MenuList;
 import christmas.dto.BenefitResultDto;
@@ -7,6 +8,8 @@ import christmas.dto.BenefitResultDto;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import static christmas.constant.Constant.*;
 
 public class OutputView {
 
@@ -77,25 +80,20 @@ public class OutputView {
 
     public void printBadge(int amount){
         System.out.println("<12월 이벤트 배지>");
-        if(amount >= 5000 && amount < 10000){
+        if(amount >= MIN_STAR_BADGE_PRICE && amount < MIN_TREE_BADGE_PRICE){
             System.out.println("별");
             return;
         }
-        if(amount >= 10000 && amount < 20000){
+        if(amount >= MIN_TREE_BADGE_PRICE && amount < MIN_SANTA_BADGE_PRICE){
             System.out.println("트리");
             return;
         }
-        if(amount >= 20000){
+        if(amount >= MIN_SANTA_BADGE_PRICE){
             System.out.println("산타");
             return;
         }
         System.out.println("없음");
         System.out.println();
     }
-
-
-
-
-
 
 }
