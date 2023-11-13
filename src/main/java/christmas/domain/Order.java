@@ -24,16 +24,10 @@ public class Order {
     }
 
     public int calcTotalAmountBeforeDiscount(){
-        int totalAmountBeforeDiscount = 0;
         Set<Map.Entry<MenuList, Integer>> entries = menus.entrySet();
-
-        for(Map.Entry<MenuList, Integer> entry : entries){
-            int price = entry.getKey().getPrice();
-            Integer quantity = entry.getValue();
-
-            totalAmountBeforeDiscount += price * quantity;
-        }
-        return totalAmountBeforeDiscount;
+        return entries.stream()
+                .mapToInt(menuEntry -> menuEntry.getKey().getPrice() * menuEntry.getValue())
+                .sum();
     }
 
     public int calcTotalAmountAfterDiscount(){
