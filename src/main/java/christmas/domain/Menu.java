@@ -20,25 +20,25 @@ public enum Menu {
         this.menus = menus;
     }
 
-    public boolean hasMenuName(MenuList menu){
+    public boolean hasMenuName(MenuList menu) {
         return menus.stream()
                 .anyMatch(m -> m == menu);
     }
 
-    public static boolean hasMenuListInDessert(MenuList menu){
+    public static boolean hasMenuListInDessert(MenuList menu) {
         return DESSERT.hasMenuName(menu);
     }
 
-    public static boolean hasMenuListInMain(MenuList menu){
+    public static boolean hasMenuListInMain(MenuList menu) {
         return MAIN.hasMenuName(menu);
     }
 
-    public static void validateOnlyDrinks(String inputMenus){
+    public static void validateOnlyDrinks(String inputMenus) {
         boolean hasOnlyDrinks = Arrays.stream(inputMenus.split(","))
                 .map(menu -> menu.substring(0, menu.indexOf("-")))
                 .map(menu -> MenuList.findMenu(menu))
                 .allMatch(menu -> DRINK.menus.contains(menu));
-        if(hasOnlyDrinks){
+        if (hasOnlyDrinks) {
             throw new IllegalArgumentException("음료만 주문할 수 없습니다.");
         }
     }

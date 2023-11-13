@@ -12,37 +12,37 @@ public class Order {
 
     public Order(Map<MenuList, Integer> menus, List<Discount> discounts) {
         this.menus = menus;
-        if(calcTotalAmountBeforeDiscount() >= MIN_PRICE_FOR_EVENT){
+        if (calcTotalAmountBeforeDiscount() >= MIN_PRICE_FOR_EVENT) {
             this.discounts = discounts;
         }
-        if(calcTotalAmountBeforeDiscount() < MIN_PRICE_FOR_EVENT){
+        if (calcTotalAmountBeforeDiscount() < MIN_PRICE_FOR_EVENT) {
             this.discounts = Collections.EMPTY_LIST;
         }
-        if(calcTotalAmountBeforeDiscount() >= MIN_PRICE_FOR_PRESENT){
+        if (calcTotalAmountBeforeDiscount() >= MIN_PRICE_FOR_PRESENT) {
             this.present = MenuList.CHAMPAGNE;
         }
     }
 
-    public int calcTotalAmountBeforeDiscount(){
+    public int calcTotalAmountBeforeDiscount() {
         Set<Map.Entry<MenuList, Integer>> entries = menus.entrySet();
         return entries.stream()
                 .mapToInt(menuEntry -> menuEntry.getKey().getPrice() * menuEntry.getValue())
                 .sum();
     }
 
-    public int calcTotalAmountAfterDiscount(){
+    public int calcTotalAmountAfterDiscount() {
         return calcTotalAmountBeforeDiscount() - calcTotalDiscountAmount();
     }
 
 
-    public int calcTotalDiscountAmount(){
+    public int calcTotalDiscountAmount() {
         return discounts.stream()
                 .mapToInt(discount -> discount.getDiscountPrice())
                 .sum();
     }
 
-    public int calcTotalBenefitAmount(){
-        if(present != null){
+    public int calcTotalBenefitAmount() {
+        if (present != null) {
             return calcTotalDiscountAmount() + present.getPrice();
         }
         return calcTotalDiscountAmount();

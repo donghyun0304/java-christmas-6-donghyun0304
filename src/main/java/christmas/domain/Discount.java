@@ -1,6 +1,5 @@
 package christmas.domain;
 
-import christmas.constant.Constant;
 
 public class Discount {
 
@@ -57,11 +56,4 @@ public class Discount {
         return discountTitle;
     }
 
-    @Override
-    public String toString() {
-        return "Discount{" +
-                "discountTitle='" + discountTitle + '\'' +
-                ", discountPrice=" + discountPrice +
-                '}';
-    }
 }

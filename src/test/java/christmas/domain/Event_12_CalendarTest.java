@@ -17,7 +17,7 @@ class Event_12_CalendarTest {
 
     @ParameterizedTest
     @MethodSource("generateData")
-    void 날짜에_맞는_이벤트_달력객체_리스트가_생성된다(String day, int index){
+    void 날짜에_맞는_이벤트_달력객체_리스트가_생성된다(String day, int index) {
         //given
         List<Event_12_Calendar> event = Event_12_Calendar.findEvent(day);
         //when
@@ -43,12 +43,12 @@ class Event_12_CalendarTest {
                 Arrays.asList(
                         Event_12_Calendar.WEEKDAYS
                 )
-                );
+        );
         //then
         Assertions.assertThat(event).containsAll(result.get(index));
     }
 
-    static Stream<Arguments> generateData(){
+    static Stream<Arguments> generateData() {
         return Stream.of(
                 Arguments.of("1", 0),
                 Arguments.of("3", 1),

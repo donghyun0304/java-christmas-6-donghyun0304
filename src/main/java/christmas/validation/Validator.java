@@ -2,11 +2,8 @@ package christmas.validation;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class Validator {
 
@@ -62,6 +59,5 @@ public class Validator {
             throw new IllegalArgumentException("음식의 개수는 최소 1개 이상 주문해야합니다.");
     }
     }
-
 
 }

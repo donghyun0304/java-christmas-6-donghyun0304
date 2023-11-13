@@ -25,21 +25,21 @@ public enum MenuList {
         this.price = price;
     }
 
-    public static MenuList findMenu(String menuName){
+    public static MenuList findMenu(String menuName) {
         return Arrays.stream(MenuList.values())
                 .filter(m -> m.getTitle().equals(menuName))
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("메뉴가 존재하지 않습니다."));
     }
 
-    public static void validateValidMenus(String inputMenus){
+    public static void validateValidMenus(String inputMenus) {
         String[] menus = inputMenus.split(",");
 
-        for(String menu : menus){
+        for (String menu : menus) {
             String menuName = menu.split("-")[0];
             boolean hasMenu = Arrays.stream(MenuList.values())
                     .anyMatch(m -> m.getTitle().equals(menuName));
-            if(!hasMenu){
+            if (!hasMenu) {
                 throw new IllegalArgumentException("메뉴가 존재하지 않습니다.");
             }
         }

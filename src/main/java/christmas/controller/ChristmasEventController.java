@@ -26,7 +26,7 @@ public class ChristmasEventController {
         this.eventService = new EventService();
     }
 
-    public void run(){
+    public void run() {
         outputView.printStart();
         String day = inputView.inputDay();
         String inputMenus = inputView.inputMenus();
@@ -48,8 +48,8 @@ public class ChristmasEventController {
                 ));
     }
 
-    private Order createOrder(Map<MenuList, Integer> menuMap, List<Discount> discounts) {
-        return new Order(menuMap, discounts);
+    private Order createOrder(Map<MenuList, Integer> menus, List<Discount> discounts) {
+        return new Order(menus, discounts);
     }
 
     private void printOrderSummary(Order order) {

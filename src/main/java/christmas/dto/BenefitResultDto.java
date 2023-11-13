@@ -18,14 +18,14 @@ public class BenefitResultDto {
         this.present = present;
     }
 
-    public static BenefitResultDto from(Order order){
+    public static BenefitResultDto from(Order order) {
         return new BenefitResultDto(getDiscountsMap(order.getDiscounts()), order.getPresent());
-}
+    }
 
-    private static Map<String, Integer> getDiscountsMap(List<Discount> discounts){
+    private static Map<String, Integer> getDiscountsMap(List<Discount> discounts) {
         Map<String, Integer> nonDuplicateDiscounts = new HashMap<>();
 
-        for(int i=0; i<discounts.size(); i++){
+        for (int i = 0; i < discounts.size(); i++) {
             Discount discount = discounts.get(i);
             String discountTitle = discount.getDiscountTitle();
             Integer sum = nonDuplicateDiscounts.getOrDefault(discountTitle, 0) + discount.getDiscountPrice();
